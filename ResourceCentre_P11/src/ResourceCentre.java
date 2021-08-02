@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class ResourceCentre {
 
 
+	private static final int VIEW_ALL_ITEMS = 1;
 	private static final int OPTION_QUIT = 5;
 	public static void main(String[] args) {
 
@@ -21,7 +22,7 @@ public class ResourceCentre {
 			ResourceCentre.menu();
 			option = Helper.readInt("Enter an option > ");
 
-			if (option == 1) {
+			if (option == VIEW_ALL_ITEMS) {
 				// View all items
 				ResourceCentre.viewAllCamcorder(camcorderList);
 				ResourceCentre.viewAllChromebook(chromebookList);
@@ -151,7 +152,8 @@ public class ResourceCentre {
 		// write your code here
 		for (int i = 0; i < chromebookList.size(); i++) {
 
-			output += String.format("%-10s %-30s %-10s %-10s %-20s\n", chromebookList.get(i).getAssetTag(),
+			String assetTag = chromebookList.get(i).getAssetTag();
+			output += String.format("%-10s %-30s %-10s %-10s %-20s\n", assetTag,
 					chromebookList.get(i).getDescription(), 
 					ResourceCentre.showAvailability(chromebookList.get(i).getIsAvailable()),
 					chromebookList.get(i).getDueDate(),chromebookList.get(i).getOs());
