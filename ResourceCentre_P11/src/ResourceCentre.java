@@ -3,6 +3,9 @@ import java.util.ArrayList;
 public class ResourceCentre {
 
 
+	private static final int RETURN_ITEM = 4;
+	private static final int LOAN_ITEM = 3;
+	private static final int ADDING_ITEM = 2;
 	private static final int VIEW_ALL_ITEMS = 1;
 	private static final int OPTION_QUIT = 5;
 	public static void main(String[] args) {
@@ -27,7 +30,7 @@ public class ResourceCentre {
 				ResourceCentre.viewAllCamcorder(camcorderList);
 				ResourceCentre.viewAllChromebook(chromebookList);
 
-			} else if (option == 2) {
+			} else if (option == ADDING_ITEM) {
 				// Add a new item
 				ResourceCentre.setHeader("ADD");			
 				ResourceCentre.setHeader("ITEM TYPES");
@@ -50,7 +53,7 @@ public class ResourceCentre {
 					System.out.println("Invalid type");
 				}
 
-			} else if (option == 3) {
+			} else if (option == LOAN_ITEM) {
 				// Loan item
 				ResourceCentre.setHeader("LOAN");			
 				ResourceCentre.setHeader("ITEM TYPES");
@@ -69,7 +72,7 @@ public class ResourceCentre {
 					System.out.println("Invalid type");
 				}
 
-			} else if (option == 4) {
+			} else if (option == RETURN_ITEM) {
 				// Return item
 				ResourceCentre.setHeader("RETURN");				
 				ResourceCentre.setHeader("ITEM TYPES");
@@ -153,7 +156,7 @@ public class ResourceCentre {
 		for (int i = 0; i < chromebookList.size(); i++) {
 
 			String assetTag = chromebookList.get(i).getAssetTag();
-			output += String.format("%-10s %-30s %-10s %-10s %-20s\n", assetTag,
+			output += String.format("%-10s %-30s %-10s %-10s %-20s\n",
 					chromebookList.get(i).getDescription(), 
 					ResourceCentre.showAvailability(chromebookList.get(i).getIsAvailable()),
 					chromebookList.get(i).getDueDate(),chromebookList.get(i).getOs());
