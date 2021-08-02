@@ -128,7 +128,7 @@ public class ResourceCentre {
 	//================================= Option 1 View (CRUD - Read) =================================
 	public static String retrieveAllCamcorder(ArrayList<Camcorder> camcorderList) {
 		String output = "";
-
+		// Write your codes here
 		for (int i = 0; i < camcorderList.size(); i++) {
 			output += String.format("%-84s \n", camcorderList.get(i).toString());
 		}
